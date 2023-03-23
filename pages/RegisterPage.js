@@ -1,4 +1,4 @@
-exports.RegisterPage = class RegisterPage {
+export class RegisterPage {
     constructor(page) {
         this.page = page;
         this.firstName = page.locator('[data-test="first-name"]');

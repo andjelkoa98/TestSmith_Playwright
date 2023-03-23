@@ -1,13 +1,12 @@
 import { test, expect } from '@playwright/test';
+import { Login } from '../pages/Login';
 
-test('test', async ({ page }) => {
+test('Login test', async ({ page }) => {
 
-  await page.goto('https://practicesoftwaretesting.com/#/');
-  await page.locator('[data-test="nav-sign-in"]').click();
-  await page.locator('[data-test="email"]').click();
-  await page.locator('[data-test="email"]').fill('aca@acaa.com');
-  await page.locator('[data-test="password"]').click();
-  await page.locator('[data-test="password"]').fill('1234567');
-  await page.locator('[data-test="login-submit"]').click();
+  const loginUser = new Login(page);
+
+  await loginUser.login('aca@acaa.com', '1234567');
+
   await expect(page.locator('[data-test="page-title"]')).toBeVisible();
+
 });
